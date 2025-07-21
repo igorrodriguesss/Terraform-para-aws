@@ -12,4 +12,6 @@ output "subnet-priv-1a" {
 output "subnet-priv-1b" {
   value = aws_subnet.eks-subnet-private-1b.id
 }
-
+output "vpc-id" {
+  value = aws_vpc.eks_vpc.id
+}

@@ -24,7 +24,10 @@ module "eks-managed-node-group" {
 }
 
 module "eks-load-balancer-controller" {
-  source       = "./modules/load-ballancer-controller"
+  source       = "./modules/load-balancer-controller"
   project_name = var.project_name
   tags         = local.tags
+  oidc         = module.eks-cluster.oidc
+  cluster_name = module.eks-cluster.cluster-name
+  vpc_id       = module.eks-network.vpc-id
 }
